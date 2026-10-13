@@ -1,0 +1,894 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080d25">
+<meta name="description" content="Página oficial de Esslangamer20: programación, proyectos, Minecraft y redes sociales.">
+<title>Esslangamer20 | Página oficial</title>
+
+<style>
+:root {
+  color-scheme: dark;
+  --bg: #080d25;
+  --panel: #101b3c;
+  --panel2: #172750;
+  --border: #2a4175;
+  --text: #f2f7ff;
+  --muted: #afc3e8;
+  --blue: #397bff;
+  --cyan: #43e5ff;
+  --purple: #9570ff;
+  --green: #70ffd0;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible, a:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 4px;
+}
+
+::selection {
+  background: var(--blue);
+  color: white;
+}
+
+/* Fondo animado */
+
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 10% 10%, #24276b 0, transparent 38%),
+    radial-gradient(ellipse at 90% 35%, #063b65 0, transparent 40%),
+    radial-gradient(ellipse at 50% 100%, #251653 0, transparent 45%),
+    var(--bg);
+}
+
+.orb {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: .30;
+  animation: float 12s ease-in-out infinite alternate;
+}
+
+.orb.one {
+  background: #3c65ff;
+  top: 8%;
+  left: -130px;
+}
+
+.orb.two {
+  background: #13cfff;
+  top: 42%;
+  right: -140px;
+  animation-delay: -4s;
+}
+
+.orb.three {
+  background: #794cff;
+  bottom: -130px;
+  left: 35%;
+  animation-delay: -7s;
+}
+
+@keyframes float {
+  from { transform: translate(0, 0) scale(1); }
+  to { transform: translate(60px, -45px) scale(1.18); }
+}
+
+/* Navegación */
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(8, 13, 37, .88);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
+
+nav {
+  width: min(1100px, 100% - 32px);
+  min-height: 72px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.brand {
+  font-size: 1.15rem;
+  font-weight: 900;
+  letter-spacing: -.6px;
+  white-space: nowrap;
+}
+
+.brand span {
+  color: var(--cyan);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: .88rem;
+  color: var(--muted);
+}
+
+.nav-links a:hover {
+  color: var(--cyan);
+}
+
+main {
+  width: min(1000px, 100% - 36px);
+  margin: auto;
+}
+
+section {
+  padding: 72px 0;
+  scroll-margin-top: 65px;
+}
+
+/* Portada */
+
+.hero {
+  min-height: 550px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.hero-content {
+  max-width: 760px;
+  animation: appear .9s ease both;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--cyan);
+  border: 1px solid #28698c;
+  background: rgba(20, 115, 160, .13);
+  border-radius: 30px;
+  padding: 6px 13px;
+  font-size: .82rem;
+  margin-bottom: 22px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 12px var(--green);
+  animation: pulse 1.8s infinite;
+}
+
+@keyframes pulse {
+  50% { opacity: .4; transform: scale(.8); }
+}
+
+h1 {
+  font-size: clamp(2.5rem, 7vw, 5rem);
+  line-height: 1.08;
+  letter-spacing: -2.5px;
+  margin-bottom: 20px;
+}
+
+.gradient-text {
+  background: linear-gradient(100deg, var(--cyan), #7d9dff, var(--purple));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 1.08rem;
+  max-width: 650px;
+}
+
+.hero .roles {
+  margin-bottom: 14px;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 19px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-weight: 750;
+  transition: transform .2s, box-shadow .2s, background .2s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+.btn-primary {
+  background: linear-gradient(110deg, #245de5, #6648dc);
+  border-color: #668bff;
+  box-shadow: 0 5px 28px #344dba40;
+}
+
+.btn-primary:hover {
+  box-shadow: 0 8px 32px #426dff65;
+}
+
+.btn-secondary {
+  background: var(--panel);
+}
+
+.btn-secondary:hover {
+  border-color: var(--cyan);
+}
+
+.scroll-note {
+  margin-top: 55px;
+  color: #829bca;
+  font-size: .8rem;
+  animation: bob 2s ease-in-out infinite;
+}
+
+@keyframes bob {
+  50% { transform: translateY(5px); }
+}
+
+@keyframes appear {
+  from { opacity: 0; transform: translateY(22px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Títulos */
+
+.section-head {
+  margin-bottom: 28px;
+}
+
+.kicker {
+  color: var(--cyan);
+  font-size: .8rem;
+  font-weight: 850;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+  line-height: 1.25;
+  margin: 8px 0 10px;
+  letter-spacing: -.8px;
+}
+
+.section-head p {
+  color: var(--muted);
+  max-width: 650px;
+}
+
+/* Tarjetas */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px;
+}
+
+.card {
+  min-width: 0;
+  padding: 23px;
+  border-radius: 19px;
+  border: 1px solid var(--border);
+  background: linear-gradient(145deg, #14244b, #0e1835);
+  position: relative;
+  overflow: hidden;
+  transition: transform .25s, border-color .25s, box-shadow .25s;
+  animation: appear .65s ease both;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  right: -50px;
+  top: -50px;
+  background: var(--glow, #397bff);
+  filter: blur(45px);
+  opacity: .22;
+  pointer-events: none;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #568bff;
+  box-shadow: 0 12px 35px #00000025;
+}
+
+.card-icon {
+  display: grid;
+  place-items: center;
+  width: 49px;
+  height: 49px;
+  border-radius: 14px;
+  background: #203c70;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+
+.card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 7px;
+}
+
+.card p {
+  color: var(--muted);
+  font-size: .93rem;
+  margin-bottom: 15px;
+}
+
+.card-link {
+  color: var(--cyan);
+  font-weight: 750;
+  font-size: .9rem;
+  display: inline-block;
+}
+
+.card-link:hover {
+  text-decoration: underline;
+}
+
+/* Últimas publicaciones */
+
+.activity-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.activity-label {
+  font-size: .75rem;
+  color: var(--cyan);
+  background: #173c5a;
+  padding: 4px 9px;
+  border-radius: 20px;
+  margin-bottom: 13px;
+  font-weight: 750;
+}
+
+.activity-card .card-link {
+  margin-top: auto;
+}
+
+.hint {
+  margin-top: 18px;
+  color: #8ea7d2;
+  font-size: .84rem;
+}
+
+/* Sobre mí */
+
+.about {
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  padding: clamp(23px, 5vw, 40px);
+  background: linear-gradient(130deg, #14254c, #15143d);
+}
+
+.about p {
+  color: var(--muted);
+  max-width: 750px;
+  font-size: 1.02rem;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 22px;
+}
+
+.tag {
+  border: 1px solid #334f87;
+  background: #1a2e58;
+  padding: 5px 11px;
+  border-radius: 9px;
+  color: #d5e7ff;
+  font-size: .83rem;
+}
+
+/* Redes */
+
+.social-card {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.social-card .card-icon {
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.social-card h3 {
+  margin: 0;
+}
+
+.social-card p {
+  margin: 3px 0 8px;
+  font-size: .84rem;
+}
+
+/* Footer */
+
+footer {
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 30px 18px;
+  color: var(--muted);
+  font-size: .88rem;
+}
+
+footer strong {
+  color: var(--cyan);
+}
+
+.back-top {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--cyan);
+}
+
+/* Entrada al aparecer en pantalla */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .65s ease, transform .65s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 650px) {
+  nav {
+    padding: 12px 0;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .nav-links {
+    gap: 14px;
+    font-size: .83rem;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 75px;
+    padding-bottom: 50px;
+  }
+
+  h1 {
+    letter-spacing: -1.5px;
+  }
+
+  section {
+    padding: 52px 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 21px;
+  }
+
+  .scroll-note {
+    margin-top: 35px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="background" aria-hidden="true">
+  <div class="orb one"></div>
+  <div class="orb two"></div>
+  <div class="orb three"></div>
+</div>
+
+<header>
+  <nav aria-label="Navegación principal">
+    <a class="brand" href="#inicio">Esslangamer<span>20</span> ⚡</a>
+
+    <div class="nav-links">
+      <a href="#inicio">Inicio</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#actividad">Actividad</a>
+      <a href="#redes">Redes</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <section class="hero" id="inicio">
+    <div class="hero-content">
+      <div class="eyebrow">
+        <span class="status-dot"></span>
+        Bienvenido a mi rincón de Internet
+      </div>
+
+      <h1>
+        Ola, soy<br>
+        <span class="gradient-text">Esslangamer20.</span>
+      </h1>
+
+      <p class="roles">
+        Desarrollador · Programador · YouTuber · TikToker · GitHuber
+      </p>
+
+      <p>
+        Tengo varios proyectos xd. Si gustas verlos,
+        date una vuelta por aquí. 😎
+        Programación, Minecraft, herramientas y otras
+        cosas que voy creando.
+      </p>
+
+      <div class="actions">
+        <a class="btn btn-primary" href="#proyectos">
+          💻 Ver mis proyectos
+        </a>
+        <a class="btn btn-secondary" href="#redes">
+          🌐 Mis redes sociales
+        </a>
+      </div>
+
+      <div class="scroll-note">
+        ↓ Explora mi mundo digital
+      </div>
+    </div>
+  </section>
+
+  <section id="proyectos">
+    <div class="section-head reveal">
+      <div class="kicker">Cosas que hago</div>
+      <h2>Mis proyectos 🚀</h2>
+      <p>
+        Algunas de mis creaciones y experimentos.
+        Iré añadiendo más conforme los desarrolle.
+      </p>
+    </div>
+
+    <div class="grid">
+      <article class="card reveal" style="--glow:#438cff">
+        <div class="card-icon">🎨</div>
+        <h3>Esslangamer Skin</h3>
+        <p>
+          Herramientas y experimentos para analizar,
+          crear y explorar skins de Minecraft Bedrock.
+        </p>
+        <!-- Cambia # por el enlace real de tu proyecto -->
+        <a class="card-link" href="#redes">
+          Ver proyecto ↗
+        </a>
+      </article>
+
+      <article class="card reveal" style="--glow:#41e5ff">
+        <div class="card-icon">🧩</div>
+        <h3>Herramientas web</h3>
+        <p>
+          Páginas hechas con HTML, CSS y JavaScript
+          para resolver problemas y probar ideas.
+        </p>
+        <a class="card-link" href="#redes">
+          Explorar ↗
+        </a>
+      </article>
+
+      <article class="card reveal" style="--glow:#9a76ff">
+        <div class="card-icon">⛏️</div>
+        <h3>Proyectos de Minecraft</h3>
+        <p>
+          Experimentos, skins, recursos y otras
+          ideas relacionadas con Minecraft Bedrock.
+        </p>
+        <a class="card-link" href="#redes">
+          Ver creaciones ↗
+        </a>
+      </article>
+
+      <article class="card reveal" style="--glow:#70ffd0">
+        <div class="card-icon">⚙️</div>
+        <h3>En desarrollo...</h3>
+        <p>
+          Aquí aparecerán nuevos proyectos cuando
+          estén listos. Siempre hay algo que probar xd.
+        </p>
+        <a class="card-link" href="#actividad">
+          Ver actividad ↗
+        </a>
+      </article>
+    </div>
+  </section>
+
+  <section id="actividad">
+    <div class="section-head reveal">
+      <div class="kicker">Novedades</div>
+      <h2>Lo último que he subido ✨</h2>
+      <p>
+        Mis publicaciones recientes en distintas plataformas.
+        Actualiza los enlaces y títulos cuando publiques algo nuevo.
+      </p>
+    </div>
+
+    <div class="grid">
+      <article class="card activity-card reveal">
+        <span class="activity-label">▶ YouTube</span>
+        <div class="card-icon">🎬</div>
+        <h3>Mi último video</h3>
+        <p>
+          Aquí puedes poner el título de tu Short
+          o video más reciente.
+        </p>
+        <!-- Reemplaza con el enlace de tu último video -->
+        <a class="card-link"
+           href="https://www.youtube.com/"
+           target="_blank" rel="noopener noreferrer">
+          Ver en YouTube ↗
+        </a>
+      </article>
+
+      <article class="card activity-card reveal">
+        <span class="activity-label">♪ TikTok</span>
+        <div class="card-icon">📱</div>
+        <h3>Mi último TikTok</h3>
+        <p>
+          Escribe aquí de qué trata tu TikTok
+          más reciente.
+        </p>
+        <!-- Reemplaza con el enlace de tu último TikTok -->
+        <a class="card-link"
+           href="https://www.tiktok.com/"
+           target="_blank" rel="noopener noreferrer">
+          Ver en TikTok ↗
+        </a>
+      </article>
+
+      <article class="card activity-card reveal">
+        <span class="activity-label">⌘ GitHub</span>
+        <div class="card-icon">💻</div>
+        <h3>Mi último proyecto</h3>
+        <p>
+          Aquí puedes destacar el repositorio,
+          actualización o código que hayas publicado.
+        </p>
+        <!-- Reemplaza con tu perfil o repositorio -->
+        <a class="card-link"
+           href="https://github.com/"
+           target="_blank" rel="noopener noreferrer">
+          Ver en GitHub ↗
+        </a>
+      </article>
+
+      <article class="card activity-card reveal">
+        <span class="activity-label">🌐 Mi web</span>
+        <div class="card-icon">⚡</div>
+        <h3>Esta página</h3>
+        <p>
+          Mi espacio personal para reunir mis proyectos,
+          redes y novedades.
+        </p>
+        <a class="card-link" href="#inicio">
+          Volver al inicio ↑
+        </a>
+      </article>
+    </div>
+
+    <p class="hint">
+      📝 Nota: las publicaciones se editan manualmente.
+      Esta versión no obtiene automáticamente los últimos videos.
+    </p>
+  </section>
+
+  <section id="sobre-mi">
+    <div class="about reveal">
+      <div class="kicker">¿Quién soy?</div>
+      <h2>Un poco sobre mí 👋</h2>
+      <p>
+        Ola, soy Esslangamer20. Un desarollador,
+        programador, youtuber, tiktoker, y githuber.
+        Tengo varios proyectos xd si gustas verlos xd.
+      </p>
+      <p style="margin-top:12px">
+        Me gusta crear cosas, experimentar con código
+        y compartir mis proyectos. Esta página es el
+        lugar donde puedes encontrar lo que hago.
+      </p>
+
+      <div class="tags">
+        <span class="tag">💻 Programación</span>
+        <span class="tag">🎮 Minecraft</span>
+        <span class="tag">🌐 Desarrollo web</span>
+        <span class="tag">🎬 YouTube</span>
+        <span class="tag">📱 TikTok</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="redes">
+    <div class="section-head reveal">
+      <div class="kicker">Encuéntrame</div>
+      <h2>Mis redes y enlaces 🌎</h2>
+      <p>
+        Todos mis lugares de Internet, reunidos en una sola página.
+      </p>
+    </div>
+
+    <div class="grid">
+      <article class="card social-card reveal">
+        <div class="card-icon">▶️</div>
+        <div>
+          <h3>YouTube</h3>
+          <p>Videos, Shorts y tutoriales.</p>
+          <a class="card-link"
+             href="https://www.youtube.com/"
+             target="_blank" rel="noopener noreferrer">
+            Mi canal ↗
+          </a>
+        </div>
+      </article>
+
+      <article class="card social-card reveal">
+        <div class="card-icon">🎵</div>
+        <div>
+          <h3>TikTok</h3>
+          <p>Clips y contenido corto.</p>
+          <a class="card-link"
+             href="https://www.tiktok.com/"
+             target="_blank" rel="noopener noreferrer">
+            Mi perfil ↗
+          </a>
+        </div>
+      </article>
+
+      <article class="card social-card reveal">
+        <div class="card-icon">🐙</div>
+        <div>
+          <h3>GitHub</h3>
+          <p>Código y repositorios.</p>
+          <a class="card-link"
+             href="https://github.com/"
+             target="_blank" rel="noopener noreferrer">
+            Mi GitHub ↗
+          </a>
+        </div>
+      </article>
+
+      <article class="card social-card reveal">
+        <div class="card-icon">🌍</div>
+        <div>
+          <h3>Mi página</h3>
+          <p>Mi centro de proyectos.</p>
+          <a class="card-link" href="#inicio">
+            Esslangamer20 ↗
+          </a>
+        </div>
+      </article>
+    </div>
+
+    <p class="hint">
+      Puedes añadir aquí Instagram, Discord u otras redes
+      cuando quieras.
+    </p>
+  </section>
+</main>
+
+<footer>
+  <p>
+    Hecho con 💙, código y muchas ideas por
+    <strong>Esslangamer20</strong>.
+  </p>
+  <p>© <span id="year"></span> · Mi rincón de Internet.</p>
+  <a class="back-top" href="#inicio">Volver arriba ↑</a>
+</footer>
+
+<script>
+"use strict";
+
+// Año automático
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+
+// Animación de entrada al desplazarse.
+// Si el navegador no lo admite, todo el contenido sigue visible.
+const revealItems = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window) {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12
+  });
+
+  revealItems.forEach((item) => observer.observe(item));
+} else {
+  revealItems.forEach((item) => item.classList.add("visible"));
+}
+</script>
+
+</body>
+</html>
